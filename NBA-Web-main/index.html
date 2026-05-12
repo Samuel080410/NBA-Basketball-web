@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Moje stránka</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght:@400;700display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section class="hero">
+    <img src="images/others/NBA-Hero.jpeg" alt="NBA Players" class="hero-bg">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <div class="box">
+            <img src="images/others/logo.png" alt="NBA Zone logo" class="main-logo">
+            
+        
+        </div>
+        <!--<img src="images/others/Image.png" alt="NBA Zone logo" class="main-logo">
+        <div class="logo"> NBA Zone</div>-->
+
+        <h1>
+            Explore <br>
+            NBA Teams
+        </h1>
+
+        <p>Find information about all 30 <br> NBA teams</p>
+
+        <div class="search-box">
+            <input type="text" placeholder="Team name">
+            <span><img src="images/others/search-icon.png"></span>
+        </div>
+    </div>
+</section>
+<section class="conferences">
+    <h2>Choose a conference</h2>
+<div class="conference-switch">
+    <div class="slider"></div>
+
+    <button class="conf-btn east active">Eastern</button>
+    <button class="conf-btn west">Western</button>
+</div>
+</section>
+
+<section class="teams">
+
+    <!-- EAST -->
+    <div class="teams-content east-teams active">
+
+        <!-- ATLANTIC -->
+        <div class="division">
+            <h3>ATLANTIC</h3>
+            <div class="team-grid">
+                <div class="team"><img src="images/teams/celtics/logo.png"><p>Boston Celtics</p></div>
+                <div class="team"><img src="images/teams/sixers/logo.png"><p>Philadelphia 76ers</p></div>
+                <div class="team"><img src="images/teams/raptors/logo.png"><p>Toronto Raptors</p></div>
+                <div class="team"><img src="images/teams/knicks/logo.png"><p>New York Knicks</p></div>
+                <div class="team"><img src="images/teams/nets/logo.png"><p>Brooklyn Nets</p></div>
+            </div>
+        </div>
+
+        <!-- CENTRAL -->
+        <div class="division">
+            <h3>CENTRAL</h3>
+            <div class="team-grid">
+                <div class="team"><img src="images/teams/bulls/logo.png"><p >Chicago Bulls</p></div>
+                <div class="team"><img src="images/teams/cavs/logo.png"><p>Cleveland Cavaliers</p></div>
+                <div class="team"><img src="images/teams/pacers/logo.png"><p>Indiana Pacers</p></div>
+                <div class="team"><img src="images/teams/bucks/logo.png"><p>Milwaukee Bucks</p></div>
+                <div class="team"><img src="images/teams/pistons/logo.png"><p>Detroit Pistons</p></div>
+            </div>
+        </div>
+
+        <!-- SOUTHEAST -->
+        <div class="division">
+            <h3>SOUTHEAST</h3>
+            <div class="team-grid">
+                 <div class="team"><img src="images/teams/hawks/logo.png"><p>Atlanta Hawks</p></div>
+                <div class="team"><img src="images/teams/hornets/logo.png"><p>Charlotte Hornets</p></div>
+                <div class="team"><img src="images/teams/wizards/logo.png"><p>Washington Wizards</p></div>
+                <div class="team"><img src="images/teams/magic/logo.png"><p>Orlando Magic</p></div>
+                <div class="team"><img src="images/teams/heat/logo.png"><p>Miami Heat</p></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- WEST -->
+    <div class="teams-content west-teams">
+
+        <!-- NORTHWEST -->
+        <div class="division">
+            <h3>NORTHWEST</h3>
+            <div class="team-grid">
+                <div class="team"><img src="images/teams/nuggets/logo.png"><p>Denver Nuggets</p></div>
+                <div class="team"><img src="images/teams/timberwolves/logo.png"><p>Minnesota Timberwolves</p></div>
+                <div class="team"><img src="images/teams/thunder/logo.png"><p>Oklahoma City Thunder</p></div>
+                <div class="team"><img src="images/teams/blazers/logo.png"><p>Portland Trail Blazers</p></div>
+                <div class="team"><img src="images/teams/jazz/logo.png"><p>Utah Jazz</p></div>
+            </div>
+        </div>
+
+        <!-- PACIFIC -->
+        <div class="division">
+            <h3>PACIFIC</h3>
+            <div class="team-grid">
+                <div class="team"><img src="images/teams/kings/logo.png"><p>Sacramento Kings</p></div>
+                <div class="team"><img src="images/teams/clippers/logo.png"><p>LA Clippers</p></div>
+                <div class="team"><img src="images/teams/warriors/logo.png"><p>Golden State Warriors</p></div>
+                <div class="team"><img src="images/teams/suns/logo.png"><p>Phoenix Suns</p></div>
+                <div class="team"><img src="images/teams/lakers/logo.png"><p>Los Angeles Lakers</p></div>
+            </div>
+        </div>
+
+        <!-- SOUTHWEST -->
+        <div class="division">
+            <h3>SOUTHWEST</h3>
+            <div class="team-grid">
+                <div class="team"><img src="images/teams/mavs/logo.png"><p>Dallas Mavericks</p></div>
+                <div class="team"><img src="images/teams/rockets/logo.png"><p>Houston Rockets</p></div>
+                <div class="team"><img src="images/teams/grizzlies/logo.png"><p>Memphis Grizzlies</p></div>
+                <div class="team"><img src="images/teams/pelicans/logo.png"><p>New Orleans Pelicans</p></div>
+                <div class="team"><img src="images/teams/spurs/logo.png"><p>San Antonio Spurs</p></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script>
+const buttons = document.querySelectorAll(".conf-btn");
+const switchBox = document.querySelector(".conference-switch");
+
+const eastTeams = document.querySelector(".east-teams");
+const westTeams = document.querySelector(".west-teams");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // tlačítka
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // slider + teams
+        if (btn.classList.contains("west")) {
+            switchBox.classList.add("west-active");
+
+            eastTeams.classList.remove("active");
+            westTeams.classList.add("active");
+
+        } else {
+            switchBox.classList.remove("west-active");
+
+            eastTeams.classList.add("active");
+            westTeams.classList.remove("active");
+        }
+    });
+});
+</script>
+<script src="script.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-content">
+
+        <img src="images/others/logo.png" alt="NBA Zone Logo" class="footer-logo">
+
+        <p class="footer-text">
+            © 2026 NBA Zone • NBA Fan Page
+        </p>
+    </div>
+</footer>
+</html>

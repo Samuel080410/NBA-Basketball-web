@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Team</title>
+    <script src="teams.js"></script>
+    <link rel="stylesheet" href="team.css">
+    <link rel="icon" type="images/png" href="images/others/mini_logo.png">
+</head>
+
+<body>
+<div class="main-wrapper">
+    <nav class="top-nav">
+        <a href="index.html" class="logo-link">
+            <img src="images/others/logo.png" alt="main-logo" class="nav-logo">
+        </a>
+        <div class="nav-links">
+            <a href="#history">Team History</a>
+            <a href="#trophies">Trophies</a>
+            <a href="#players">Iconic Players</a>
+            <a href="#stats">Stats</a>
+            <a href="#all-time-stats">All-Time Stats</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <img class="logo" alt="">
+        <div class="hero-text">
+            <h1 class="team-name"></h1>
+            <p class="team-subtitle"></p>
+        </div>
+    </header>
+
+    <div class="info-bar">
+        <div class="info-item">
+            <span class="label">Arena</span>
+            <span class="value arena"></span>
+        </div>
+        <div class="info-item titles-item">
+            <span class="label">NBA Titles</span>
+            <div>
+                <span class="number championships"></span>
+                <span class="value">CHAMPIONSHIP</span>
+            </div>
+        </div>
+        <div class="info-item">
+            <span class="label">Conference</span>
+            <span class="value conference"></span>
+        </div>
+        <div class="info-item">
+            <span class="label">Division</span>
+            <span class="value division"></span>
+        </div>
+    </div>
+
+    <main class="container">
+        <section id="history" class="history-section">
+            <h2>Team History</h2>
+            <div class="history-content">
+                <p class="history-text"></p>
+                <img class="history-image" alt="Team History">
+            </div>
+        </section>
+
+        <section id="trophies" class="trophies-section">
+            <h2>Trophies & Achievements</h2>
+            <div class="trophies-content"></div>
+        </section>
+
+        <section id="players" class="players-section">
+            <h2>Iconic Players</h2>
+            <div class="players-grid"></div>
+        </section>
+
+        <div class="stats-gallery-layout">
+            <section id="stats" class="stats-section">
+                <h2>Stats</h2>
+                <div class="stats-list"></div>
+            </section>
+
+            <section id="gallery" class="gallery-section">
+                <h2>Photo Gallery</h2>
+                <div class="gallery-grid"></div>
+            </section>
+        </div>
+
+        <section id="all-time-stats" class="all-time-section">
+            <h2>All-Time Stats</h2>
+            <div class="all-time-table"></div>
+        </section>
+    </main>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <img src="images/others/logo.png" alt="NBA Zone Logo" class="footer-logo">
+        <p class="footer-text">&copy; 2026 NBA Zone - NBA Fan Page</p>
+
+        <div class="footer-links">
+            <a href="#history">History</a>
+            <a href="#players">Players</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const teamName = params.get("team") || "bulls";
+const team = teams[teamName] || teams.bulls;
+
+document.title = team.name;
+document.documentElement.style.setProperty("--main-color", team.color);
+
+document.querySelector(".team-name").textContent = team.name;
+document.querySelector(".team-subtitle").textContent = "Founded " + team.founded + " - " + team.arena + " - " + team.city;
+document.querySelector(".logo").src = team.logo;
+document.querySelector(".arena").textContent = team.arena;
+document.querySelector(".championships").textContent = team.championships;
+document.querySelector(".conference").textContent = team.conference;
+document.querySelector(".division").textContent = team.division;
+document.querySelector(".history-text").textContent = team.history;
+document.querySelector(".history-image").src = team.historyImage;
+
+let trophiesHTML = "<div class='trophy-summary'><span class='number'>" + team.championships + "</span><strong>NBA CHAMPIONS</strong></div>";
+trophiesHTML += "<div class='trophy-grid'>";
+
+team.trophies.years.forEach(year => {
+    trophiesHTML += "<div class='trophy-item'>";
+    trophiesHTML += "<img src='images/others/NBA_Trophy.webp' alt='Trophy'>";
+    trophiesHTML += "<span>" + year + "</span>";
+    trophiesHTML += "</div>";
+});
+
+trophiesHTML += "</div>";
+document.querySelector(".trophies-content").innerHTML = trophiesHTML;
+
+let playersHTML = "";
+team.players.forEach(player => {
+    playersHTML += "<div class='player-card'>";
+    playersHTML += "<img src='" + player.image + "' alt='" + player.name + "'>";
+    playersHTML += "<div class='player-info'>";
+    playersHTML += "<h3>" + player.name + "</h3>";
+    playersHTML += "<p>" + player.number + " / " + player.position + "</p>";
+    playersHTML += "</div></div>";
+});
+document.querySelector(".players-grid").innerHTML = playersHTML;
+
+let statsHTML = "";
+const colors = ["bg-black", "bg-red", "bg-darkbrown"];
+
+team.stats.forEach((player, index) => {
+    statsHTML += "<div class='stat-card " + colors[index] + "'>";
+    statsHTML += "<div class='rank'>" + (index + 1) + "</div>";
+    statsHTML += "<div class='details'>";
+    statsHTML += "<h4>" + player.name + "</h4>";
+    statsHTML += "<p>Points: " + player.points + "<br>Assists: " + player.assists + "<br>Rebounds: " + player.rebounds + "<br>Steals: " + player.steals + "</p>";
+    statsHTML += "</div></div>";
+});
+document.querySelector(".stats-list").innerHTML = statsHTML;
+
+let allTimeHTML = "";
+team.allTimeStats.forEach(record => {
+    allTimeHTML += "<div class='all-time-row'>";
+    allTimeHTML += "<div class='col-name'>" + record.name + "</div>";
+    allTimeHTML += "<div class='col-value'>" + record.value + "</div>";
+    allTimeHTML += "<div class='col-player'>" + record.player + "</div>";
+    allTimeHTML += "</div>";
+});
+document.querySelector(".all-time-table").innerHTML = allTimeHTML;
+
+let galleryHTML = "";
+team.gallery.forEach(image => {
+    galleryHTML += "<img src='" + image + "' class='gallery-img' alt='Team photo'>";
+});
+document.querySelector(".gallery-grid").innerHTML = galleryHTML;
+</script>
+</body>
+</html>
