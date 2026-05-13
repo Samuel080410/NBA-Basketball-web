@@ -1,4 +1,4 @@
-* {
+﻿* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -12,13 +12,12 @@
         }
 
         body {
-            background-color: #fff; /* Změněno na bílou, protože obsah je teď přes celou šířku */
+            background-color: #fff; 
             color: #333;
-            padding-top: 4%; /* Přidáno pro kompenzaci pevné horní navigace */
+            padding-top: 60px;
 
         }
 
-        /* TADY PROBĚHLA HLAVNÍ ZMĚNA: odstraněno max-width a centrování */
         .main-wrapper {
             width: 100%; 
             background-color: #fff;
@@ -28,23 +27,22 @@
             background-repeat: no-repeat;*/
         }
 
-        /* --- Horní navigace --- */
+        /* --- Horní­ navigace --- */
         .top-nav {
             background-color: #1c1c1c;
             padding: 10px 5%;
             display: flex;
-            align-items: center; /* Zarovná logo a text vertikálně na střed */
-            justify-content: space-between; /* Rozdělí prostor - logo vlevo, odkazy vpravo */
+            align-items: center; 
+            justify-content: space-between; 
             position:fixed;
             width:100%;
             top:0;
             left: 0%;
-            z-index: 1000; /* Zajistí, že navbar bude vždy nahoře */
-
+            z-index: 1000; 
             transition: transform 0.3s ease;
         }
 
-        /* schovaný navbar */
+        /* schovanÃ½ navbar */
         .top-nav.hide {
             transform: translateY(-100%);
         }
@@ -67,7 +65,7 @@
             font-size: 14px;
             font-weight: 600;
             text-transform: capitalize;
-            transition: color 0.2s ease; /* Přidán plynulý efekt při najetí myší */
+            transition: color 0.2s ease; 
         }
 
         .nav-links a:hover {
@@ -136,7 +134,7 @@
             text-align: center;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Přidáno pro lepší zarovnání na širokém monitoru */
+            justify-content: center; 
             gap: 15px;
         }
 
@@ -181,9 +179,8 @@
             line-height: 1;
         }
 
-        /* --- Hlavní obsahový kontejner --- */
         .container {
-            padding: 40px 5%; /* Změněno na % pro lepší dýchání obsahu po stranách */
+            padding: 40px 5%; 
         }
 
         h2 {
@@ -193,7 +190,7 @@
             padding-bottom: 10px;
         }
 
-        /* --- Historie týmu --- */
+        /* --- Historie týmů --- */
         .history-content {
             display: flex;
             gap: 40px;
@@ -210,7 +207,7 @@
 
         .history-content img {
             flex: 1;
-            max-width: 500px; /* Trochu zvětšeno pro velké monitory */
+            max-width: 500px; 
             height: auto;
             border: 5px solid #eee;
         }
@@ -336,7 +333,7 @@
 
         .stats-section {
             flex: 1;
-            max-width: 400px; /* Mírně rozšířeno */
+            max-width: 400px; 
         }
 
         .gallery-section {
@@ -394,7 +391,7 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 250px 250px; /* Zvětšena výška obrázků na velkém monitoru */
+            grid-template-rows: 250px 250px; 
             gap: 10px;
         }
 
@@ -775,3 +772,4 @@
         font-size: 40px;
     }
 }
+
