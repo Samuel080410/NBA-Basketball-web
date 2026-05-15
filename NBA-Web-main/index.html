@@ -1,41 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Moje stránka</title>
+    <title>NBA Zone</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght:@400;700display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="images/png" href="images/others/mini_logo.png">
+        <link rel="icon" type="images/png" href="images/others/mini_logo.png">
 
 </head>
 <body>
     <section class="hero">
-    <img src="images/others/NBA-Hero.jpeg" alt="NBA Players" class="hero-bg">
+        <img src="images/others/NBA-Hero.jpeg" alt="NBA Players" class="hero-bg">
 
-    <div class="overlay"></div>
+        <div class="overlay"></div>
 
-    <div class="hero-content">
+        <div class="hero-content">
         <div class="box">
             <img src="images/others/logo.png" alt="NBA Zone logo" class="main-logo">
-            
-        
         </div>
-        
-
-        <h1>
+            <h1>
             Explore <br>
             NBA Teams
-        </h1>
+            </h1>
+            <p>Find information about all 30 <br> NBA teams</p>
 
-        <p>Find information about all 30 <br> NBA teams</p>
-
-        <!--<div class="search-box">
-            <input type="text" placeholder="Team name">
-            <span><img src="images/others/search-icon.png"></span>
-        </div>-->
-    </div>
-</section>
+        </div>
+    </section>
 <section class="conferences">
     <h2>Choose a conference</h2>
 <div class="conference-switch">
@@ -132,46 +123,18 @@
     </div>
 
 </section>
-<script>
-const buttons = document.querySelectorAll(".conf-btn");
-const switchBox = document.querySelector(".conference-switch");
-
-const eastTeams = document.querySelector(".east-teams");
-const westTeams = document.querySelector(".west-teams");
-
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-        // tlačítka
-        buttons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        // slider + teams
-        if (btn.classList.contains("west")) {
-            switchBox.classList.add("west-active");
-
-            eastTeams.classList.remove("active");
-            westTeams.classList.add("active");
-
-        } else {
-            switchBox.classList.remove("west-active");
-
-            eastTeams.classList.add("active");
-            westTeams.classList.remove("active");
-        }
-    });
-});
-</script>
-<script src="script.js"></script>
-</body>
 <footer class="footer">
     <div class="footer-content">
 
         <img src="images/others/logo.png" alt="NBA Zone Logo" class="footer-logo">
 
         <p class="footer-text">
-            © 2026 NBA Zone • NBA Fan Page
+            &copy; 2026 NBA Zone - NBA Fan Page
         </p>
     </div>
 </footer>
+<script src="script.js"></script>
+</body>
+
 </html>
+
